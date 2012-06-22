@@ -394,7 +394,7 @@ class Ruport::Controller
         self.required_options << opt 
 
         o = opt
-        unless instance_methods(false).include?(o.to_s)
+        unless instance_methods(false).any?{ |m| m.to_s == o.to_s }
           define_method(o) { options.send(o.to_s) }
         end
         opt = "#{opt}="
