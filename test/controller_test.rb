@@ -498,7 +498,7 @@ class TestFormatterErbHelper < Test::Unit::TestCase
        # demonstrate local binding
        @foo = "bar"                         
        if options.binding
-         output << erb("Binding Override: <%= reverse %>", 
+         output << erb("Binding Override: <%= reverse.join %>", 
                        :binding => options.binding) 
        else   
          output << erb("Default Binding: <%= @foo %>") 
